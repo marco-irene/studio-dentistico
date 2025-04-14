@@ -1,0 +1,4 @@
+[build]
+publish = "dist"
+# Se hai un comando di build, lo puoi specificare qui
+# command = "npm run build"
