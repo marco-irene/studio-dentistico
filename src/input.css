@@ -1,0 +1,140 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* ---------------------------------------------------------------------------
+   Custom Icon: Applica uno stile di default agli elementi con classi che
+   iniziano per "ri-" (Remix Icon)
+--------------------------------------------------------------------------- */
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+
+/* ---------------------------------------------------------------------------
+   Impostazioni Globali
+--------------------------------------------------------------------------- */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Disabilita l'outline predefinito su input e textarea.
+   Nota: Per motivi di accessibilità, potrebbe essere utile definire uno stile
+   personalizzato al focus, ad esempio tramite box-shadow. */
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Rimuove i pulsanti di incremento/decremento per gli input di tipo number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Custom Checkbox
+--------------------------------------------------------------------------- */
+.custom-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid #0077b6;
+  border-radius: 4px;
+}
+
+/* Stato "checked" della checkbox */
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #0077b6;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.custom-checkbox .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* ---------------------------------------------------------------------------
+   Custom Switch (Toggle)
+--------------------------------------------------------------------------- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+/* Stato "checked" per il toggle-switch */
+input:checked + .slider {
+  background-color: #0077b6;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.p-6 { padding: 1rem; /* oppure */
+}
+
+
