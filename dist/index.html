@@ -58,25 +58,26 @@
       <!-- Menu Mobile con z-index aggiornato -->
       <!-- Menu Mobile Unico -->
       <div
-         id="mobileMenu"
-         class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 lg:hidden"
-         >
-         <div class="p-4 flex justify-end">
-            <button id="closeMobileMenu" class="w-10 h-10 flex items-center justify-center" aria-label="Chiudi menu">
-            <i class="ri-close-line ri-lg"></i>
-            </button>
-         </div>
-         <nav class="flex flex-col items-center space-y-6 mt-8" role="navigation" aria-label="Navigazione mobile">
-            <a href="#chi-siamo" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Chi Siamo</a>
-            <a href="#servizi" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Servizi</a>
-            <a href="#team" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Il Nostro Team</a>
-            <a href="#convenzioni" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Convenzioni</a>
-            <a href="#contatti" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Contatti</a>
-            <a href="#prenota" class="bg-primary text-white px-6 py-2 rounded font-medium hover:bg-opacity-90 transition-colors">
-            Prenota Appuntamento
-            </a>
-         </nav>
-      </div>
+      id="mobileMenu"
+      class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 lg:hidden"
+      >
+<div class="p-4 flex justify-end">
+  <button id="closeMobileMenu" class="w-10 h-10 flex items-center justify-center" aria-label="Chiudi menu">
+    <i class="ri-close-line ri-lg"></i>
+  </button>
+</div>
+<nav class="flex flex-col items-center space-y-6 mt-8" role="navigation" aria-label="Navigazione mobile">
+  <a href="#chi-siamo" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Chi Siamo</a>
+  <a href="#servizi" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Servizi</a>
+  <a href="#team" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Il Nostro Team</a>
+  <a href="#convenzioni" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Convenzioni</a>
+  <a href="#contatti" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Contatti</a>
+  <a href="#prenota" class="bg-primary text-white px-6 py-2 rounded font-medium hover:bg-opacity-90 transition-colors">
+    Prenota Appuntamento
+  </a>
+</nav>
+</div>
+
       <!-- Main Content -->
       <main role="main">
          <!-- Hero Section -->
@@ -644,35 +645,33 @@
          });
       </script>
       <script>
-         document.addEventListener("DOMContentLoaded", () => {
-         const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-         const closeMobileMenu = document.getElementById("closeMobileMenu");
-         const mobileMenu = document.getElementById("mobileMenu");
-         
-         if (!mobileMenuBtn || !closeMobileMenu || !mobileMenu) {
-         console.error("Errore: elemento del menu mobile non trovato.");
-         return;
-         }
-         
-         mobileMenuBtn.addEventListener("click", (e) => {
-         // Impedisce la propagazione verso altri elementi
-         e.stopPropagation();
-         // Verifica se il menu è nascosto prima di aprirlo
-         if (mobileMenu.classList.contains("translate-x-full")) {
-          mobileMenu.classList.remove("translate-x-full");
-          console.log("Menu mobile aperto");
-         }
-         });
-         
-         closeMobileMenu.addEventListener("click", (e) => {
-         e.stopPropagation();
-         // Verifica che il menu sia effettivamente aperto prima di aggiungere la classe di chiusura
-         if (!mobileMenu.classList.contains("translate-x-full")) {
-          mobileMenu.classList.add("translate-x-full");
-          console.log("Menu mobile chiuso");
-         }
-         });
-         });
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const closeMobileMenu = document.getElementById("closeMobileMenu");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (!mobileMenuBtn || !closeMobileMenu || !mobileMenu) {
+    console.error("Errore: elemento del menu mobile non trovato.");
+    return;
+  }
+
+  mobileMenuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (mobileMenu.classList.contains("translate-x-full")) {
+      mobileMenu.classList.remove("translate-x-full");
+      console.log("Menu mobile aperto");
+    }
+  });
+
+  closeMobileMenu.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!mobileMenu.classList.contains("translate-x-full")) {
+      mobileMenu.classList.add("translate-x-full");
+      console.log("Menu mobile chiuso");
+    }
+  });
+});
+
          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
          anchor.addEventListener('click', function(e) {
           e.preventDefault();
