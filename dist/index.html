@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
       <!-- Meta SEO -->
       <meta name="description" content="Centro Odontoiatrico specializzato in cure dentali di alta qualità per tutta la famiglia. Il nostro team di specialisti offre trattamenti personalizzati e tecnologie avanzate per un sorriso sano.">
       <meta name="robots" content="index, follow">
@@ -26,7 +27,6 @@
    </head>
    <body class="bg-white overflow-x-hidden">
       <!-- Header -->
-      <!-- Header -->
       <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50" role="banner">
          <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <a href="#" class="block" aria-label="Homepage">
@@ -48,34 +48,29 @@
                <a href="#prenota" class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">
                Prenota Appuntamento
                </a>
-               <!-- Bottone Hamburger per Mobile -->
+               <!-- Bottone Hamburger per Mobile
                <button id="mobileMenuBtn" class="ml-4 lg:hidden w-10 h-10 flex items-center justify-center" aria-label="Apri menu">
                <i class="ri-menu-line ri-lg"></i>
-               </button>
+               </button> -->
+               <label for="check" id="mobileMenuBtn" class="block lg:hidden ham ml-4 justify-center" aria-label="Apri menu">
+                  <input type="checkbox" id="check" class="hidden" />
+                  <span class="spham"></span>
+                  <span class="spham"></span>
+                  <span class="spham"></span>
+               </label>                                             
             </div>
          </div>
       </header>
       <!-- Menu Mobile -->
-      <div
-         id="mobileMenu"
-         class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 lg:hidden"
-         >
-         <div class="p-4 flex justify-end">
-            <button id="closeMobileMenu" class="w-10 h-10 flex items-center justify-center" aria-label="Chiudi menu">
-            <i class="ri-close-line ri-lg"></i>
-            </button>
-         </div>
-         <nav class="flex flex-col items-center space-y-6 mt-8" role="navigation" aria-label="Navigazione mobile">
-            <a href="#chi-siamo" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Chi Siamo</a>
-            <a href="#servizi" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Servizi</a>
-            <a href="#team" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Il Nostro Team</a>
-            <a href="#convenzioni" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Convenzioni</a>
-            <a href="#contatti" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Contatti</a>
-            <a href="#prenota" class="bg-primary text-white px-6 py-2 rounded font-medium hover:bg-opacity-90 transition-colors">
-            Prenota Appuntamento
-            </a>
-         </nav>
-      </div>
+      <!-- Menu mobile -->
+   <div id="mobileMenu" class="fixed top-[64px] left-0 right-0 bottom-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 lg:hidden">
+      <nav class="flex flex-col items-center space-y-6 mt-8" role="navigation" aria-label="Navigazione mobile">
+      <a href="#chi-siamo" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Chi Siamo</a>
+      <a href="#servizi" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Servizi</a>
+      <a href="#team" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Il Nostro Team</a>
+      <a href="#convenzioni" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Convenzioni</a>
+      <a href="#contatti" class="text-gray-800 text-lg font-medium hover:text-primary transition-colors">Contatti</a>      </nav>
+   </div>
       <!-- Main Content -->
       <main role="main">
          <!-- Hero Section -->
@@ -394,13 +389,13 @@
                         <label for="messaggio" class="block text-gray-700 font-medium mb-2">Messaggio</label>
                         <textarea id="messaggio" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="Descrivi brevemente il motivo della tua visita..."></textarea>
                      </div>
-                     <div class="mb-6">
+                     <!--<div class="mb-6">
                         <label class="custom-checkbox">
                         <input type="checkbox" required>
                         <span class="checkmark"></span>
                         <span class="text-gray-700">Acconsento al trattamento dei dati personali ai sensi del GDPR*</span>
                         </label>
-                     </div>
+                     </div>-->
                      <div class="text-center">
                         <button type="submit" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Invia richiesta</button>
                      </div>
