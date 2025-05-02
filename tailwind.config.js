@@ -1,14 +1,14 @@
 module.exports = {
     content: [
-      "./dist/**/*.{html,js}", // Controlla i file HTML e JS nella cartella dist
+      "./public/**/*.{html,js}", // Controlla i file HTML e JS nella cartella public
       "./src/**/*.{html,js,jsx,ts,tsx}", // Controlla i file nella cartella src
-      "./dist/index.html" // Controlla il file index.html nella cartella dist
+      "./public/index.html" // Controlla il file index.html nella cartella public
     ],
     theme: {
       extend: {
         colors: {
-          primary: "#008cb6",
-          secondary: "#4ea8de",
+          primary: "#ffae00",
+          secondary: "#0d3591",
         },
         borderRadius: {
           "none": "0px",
