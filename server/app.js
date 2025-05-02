@@ -6,6 +6,14 @@ require('dotenv').config({
  const nodemailer = require('nodemailer');
  
  const app = express();
+
+ const path = require('path');
+
+// Aggiungi questa route prima di app.listen()
+app.get('/', (req, res) => {
+  // Se hai un file index.html in public, lo invia
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
  
  // Serve i file statici dalla cartella 'public'
  app.use(express.static('public'));
