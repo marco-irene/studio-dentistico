@@ -11,9 +11,9 @@ require('dotenv').config({
 
 // Aggiungi questa route prima di app.listen()
 app.get('/', (req, res) => {
-  // Se hai un file index.html in public, lo invia
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+ });
+ 
  
  // Serve i file statici dalla cartella 'public'
  app.use(express.static('public'));
