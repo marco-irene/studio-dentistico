@@ -8,13 +8,14 @@ const path = require('path');
 
 const app = express();
 
-// Imposta il percorso assoluto per la cartella dei file statici
+// Costruisci il percorso assoluto per la cartella "public" che si trova fuori dalla root "server"
 const publicPath = path.join(__dirname, '..', 'public');
+app.use(express.static(publicPath));
 
-// Se usi questa route per l'index, va bene, oppure puoi lasciare che il middleware statico gestisca automaticamente l'index
 app.get('/', (req, res) => {
-   res.sendFile(path.join(publicPath, 'index.html'));
+  res.sendFile(path.join(publicPath, 'index.html'));
 });
+
 
 // Serve i file statici dalla cartella 'public'
 app.use(express.static(publicPath));
