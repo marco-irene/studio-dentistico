@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"tailwindcss -i ./src/input.css -o ./public/output.css --watch\" \"nodemon --inspect ./server/app.js\""
+    "dev": "concurrently \"tailwindcss -i ./src/input.css -o ./public/output.css --watch\" \"nodemon --inspect ./server/app.js\"",
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/output.css",
+    "build": "npm run build:css"
   },
   "author": "",
   "license": "ISC",
