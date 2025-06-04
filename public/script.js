@@ -1,3 +1,17 @@
+const track = document.getElementById('carousel-track');
+const slides = document.querySelectorAll('#carousel-track > div');
+let currentIndex = 0;
+
+document.getElementById('next').addEventListener('click', () => {
+   currentIndex = (currentIndex + 1) % slides.length;
+   track.style.transform = `translateX(-${currentIndex * 100}%)`;
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+   currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+   track.style.transform = `translateX(-${currentIndex * 100}%)`;
+});
+
 // Gestione del click sui link – chiude il menu dopo lo scroll
 document.querySelectorAll('#mobileMenu a[href^="#"]').forEach(anchor => {
    anchor.addEventListener('click', function (e) {
