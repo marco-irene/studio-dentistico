@@ -7,8 +7,8 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          primary: "#ffae00",
-          secondary: "#0d3591",
+          primary: "#F59D13",
+          secondary: "#074F90",
         },
         borderRadius: {
           "none": "0px",
@@ -26,4 +26,3 @@ module.exports = {
     },
     plugins: [],
   };
-  
