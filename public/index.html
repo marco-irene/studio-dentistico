@@ -29,11 +29,11 @@
       <header class="fixed top-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-md shadow-md z-50 transition-colors duration-300" role="banner">
          <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <!-- Logo -->
-            <a href="#" class="block" aria-label="Homepage">
+            <a href="#" class="block ml-8" aria-label="Homepage">
             <img
                src="dentino2-logo.png"
                alt="logo"
-               class="h-10 w-auto object-contain transform origin-center transition-transform duration-300 hover:scale-110"
+               class="h-16 w-auto object-contain transform origin-center transition-transform duration-300 hover:scale-110"
                style="transform: scale(2.5);"
                />
             </a>
@@ -89,24 +89,61 @@
       <main role="main">
          <!-- Hero Section -->
          <section class="relative w-full min-h-[70vh] md:min-h-screen" aria-label="Hero Section">
-            <!-- Background con immagine e overlay -->
-            <div class="absolute inset-0 bg-cover bg-top md:bg-center" style="background-image: url('/lettino1.jpg');" aria-hidden="true">
-               <div class="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
+            <!-- Slider container: tutti gli sfondi vengono gestiti qui -->
+            <div class="absolute inset-0 overflow-hidden">
+               <!-- Slide 1 -->
+               <div
+                  class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out opacity-100"
+                  style="background-image: url('/lettino1.jpg');"
+                  aria-hidden="true"
+                  >
+                  <!-- Overlay -->
+                  <div class="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
+               </div>
+               <!-- Slide 2 -->
+               <div
+                  class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out opacity-0"
+                  style="background-image: url('/lettino3.jpg');"
+                  aria-hidden="true"
+                  >
+                  <!-- Overlay -->
+                  <div class="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
+               </div>
+               <!-- Aggiungi ulteriori slide se necessario -->
             </div>
+            <!-- Bottoni per navigare lo slider -->
+            <button
+               id="prevBtn"
+               class="absolute left-4 top-1/2 transform -translate-y-1/2 z-50 bg-primary/80 text-secondary p-3 rounded-full hover:bg-gray-200 focus:outline-none"
+               aria-label="Immagine precedente"
+               >
+            &larr;
+            </button>
+            <button
+               id="nextBtn"
+               class="absolute right-4 top-1/2 transform -translate-y-1/2 z-50 bg-primary text-secondary p-3 rounded-full hover:bg-gray-200 focus:outline-none"
+               aria-label="Immagine successiva"
+               >
+            &rarr;
+            </button>
             <!-- Contenuto principale centrato -->
-            <div class="absolute inset-0 flex items-center justify-center container mx-auto px-4 z-20">
+            <div class="absolute inset-0 flex items-center justify-center container mx-auto px-4 z-40">
                <div class="max-w-2xl text-center">
-                  <!-- Ho rimosso il margin-bottom dall'immagine -->
                   <img src="/logo_home.png" alt="Centro Odontoiatrico Le Serre" class="mb-0 transform scale-105 animate-fadeUp" />
-                  <!-- Il paragrafo appare subito dopo l'immagine -->
                   <p class="text-base text-gray-700 mb-4 animate-fadeUp">
                      Centro Odontoiatrico all'avanguardia con tecnologie moderne e un team di specialisti dedicati alla salute del tuo sorriso.
                   </p>
                   <div class="flex flex-wrap justify-center gap-4">
-                     <a href="#prenota" class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap hidden-before-animation animate-fadeUp-delay">
+                     <a
+                        href="#prenota"
+                        class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap animate-fadeUp-delay"
+                        >
                      Prenota una visita
                      </a>
-                     <a href="#servizi" class="bg-white border border-secondary text-secondary px-6 py-2 rounded-full font-medium hover:bg-gray-50 transition-colors whitespace-nowrap hidden-before-animation animate-fadeUp-delay">
+                     <a
+                        href="#servizi"
+                        class="bg-white border border-secondary text-secondary px-6 py-2 rounded-full font-medium hover:bg-gray-50 transition-colors whitespace-nowrap animate-fadeUp-delay"
+                        >
                      Scopri i nostri servizi
                      </a>
                   </div>
@@ -134,7 +171,7 @@
                         Servizi
                      </h2>
                      <p class="text-gray-700 mb-4 transition-colors group-hover:text-white">
-                        Offriamo una vasta gamma di trattamenti per un sorriso sano e bello.
+                        Offriamo una vasta gamma di trattamenti per un sorriso sano.
                      </p>
                      <a href="#servizi" class="text-primary font-medium transition-colors group-hover:text-primary">
                      Scopri i servizi &raquo;
@@ -156,89 +193,128 @@
             </div>
          </div>
          <!-- Sezione Prenota -->
-         <section id="prenota" class="py-16 bg-gray-50">
-            <div class="container mx-auto px-4">
+         <section id="prenota" class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-6xl">
                <div class="text-center mb-12" data-aos="fade-up">
-                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Prenota un Appuntamento</h2>
+                  <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Prenota un Appuntamento</h2>
                   <p class="text-lg text-gray-600 max-w-3xl mx-auto">
                      Compila il modulo sottostante per richiedere un appuntamento. Ti ricontatteremo al più presto per confermare.
                   </p>
                </div>
-               <div class="md:grid md:grid-cols-3 md:gap-8">
-                  <!-- Colonna Sinistra: Servizi Offerti -->
-                  <div class="mb-8 md:mb-0 md:col-span-1">
-                     <div class="p-6" data-aos="fade-right">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Servizi Offerti</h3>
-                        <div class="space-y-4">
-                           <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-4">
-                              <i class="ri-stethoscope-line text-secondary text-3xl mr-4"></i>
+               <!-- Layout a due colonne su md+: lista servizi e form affiancati con stessa altezza -->
+               <div class="md:flex md:gap-8">
+                  <!-- Lista dei Servizi -->
+                  <div class="md:flex-1" data-aos="fade-right">
+                     <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-primary h-full">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Servizi Offerti</h3>
+                        <!-- Lista compatta, scrollabile se necessario -->
+                        <div class="space-y-3 overflow-auto pr-2" style="max-height: 100%;">
+                           <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-3">
+                              <i class="ri-stethoscope-line text-secondary text-2xl mr-3"></i>
                               <span class="text-gray-800 font-medium">Prima visita</span>
                            </div>
-                           <div data-aos="fade-right" data-aos-delay="100" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-4">
-                              <i class="ri-heart-2-line text-secondary text-3xl mr-4"></i>
-                              <span class="text-gray-800 font-medium">Igiene orale</span>
+                           <div data-aos="fade-right" data-aos-delay="100" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-3">
+                              <i class="ri-heart-2-line text-secondary text-2xl mr-3"></i>
+                              <span class="text-gray-800 font-medium">Parodontologia</span>
                            </div>
-                           <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-4">
-                              <i class="ri-user-follow-line text-secondary text-3xl mr-4"></i>
+                           <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-3">
+                              <i class="ri-user-follow-line text-secondary text-2xl mr-3"></i>
+                              <span class="text-gray-800 font-medium">Endodonzia</span>
+                           </div>
+                           <div data-aos="fade-right" data-aos-delay="300" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-3">
+                              <i class="ri-stamp-line text-secondary text-2xl mr-3"></i>
                               <span class="text-gray-800 font-medium">Implantologia</span>
                            </div>
-                           <div data-aos="fade-right" data-aos-delay="300" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-4">
-                              <i class="ri-stamp-line text-secondary text-3xl mr-4"></i>
+                           <div data-aos="fade-right" data-aos-delay="400" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-3">
+                              <i class="ri-parent-line text-secondary text-2xl mr-3"></i>
+                              <span class="text-gray-800 font-medium">Estetica dentale</span>
+                           </div>
+                           <div data-aos="fade-right" data-aos-delay="500" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-3">
+                              <i class="ri-parent-line text-secondary text-2xl mr-3"></i>
+                              <span class="text-gray-800 font-medium">Odontoiatria pediatrica</span>
+                           </div>
+                           <div data-aos="fade-right" data-aos-delay="600" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-3">
+                              <i class="ri-parent-line text-secondary text-2xl mr-3"></i>
                               <span class="text-gray-800 font-medium">Ortodonzia</span>
                            </div>
-                           <div data-aos="fade-right" data-aos-delay="400" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-4">
-                              <i class="ri-parent-line text-secondary text-3xl mr-4"></i>
-                              <span class="text-gray-800 font-medium">Odontoiatria pediatrica</span>
+                           <div data-aos="fade-right" data-aos-delay="700" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-3">
+                              <i class="ri-parent-line text-secondary text-2xl mr-3"></i>
+                              <span class="text-gray-800 font-medium">Sbiancamento Denti</span>
+                           </div>
+                           <div data-aos="fade-right" data-aos-delay="800" data-aos-duration="800" class="bg-white flex items-center border border-primary rounded-lg shadow transition duration-300 hover:-translate-y-1 hover:shadow-2xl p-3">
+                              <i class="ri-parent-line text-secondary text-2xl mr-3"></i>
+                              <span class="text-gray-800 font-medium">Conservativa</span>
                            </div>
                         </div>
                      </div>
                   </div>
-                  <!-- Colonna Destra: Form Prenotazione -->
-                  <div class="md:col-span-2" data-aos="fade-left">
-                     <div id="formContainer" class="bg-white rounded-lg shadow-lg p-8 border-t-4 border-primary">
-                        <form id="contactForm" action="/send-email" method="POST" novalidate>
-                           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                              <div>
-                                 <label for="nome" class="block text-gray-700 font-medium mb-2">Nome*</label>
-                                 <input type="text" id="nome" name="nome" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition" required>
+                  <!-- Form Prenotazione: layout flessibile per mantenere il bottone in fondo -->
+                  <div class="md:flex-1" data-aos="fade-left">
+                     <div id="formContainer" class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-primary h-full flex flex-col">
+                        <form id="contactForm" action="/send-email" method="POST" class="flex flex-col h-full">
+                           <div>
+                              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                                 <div>
+                                    <label for="nome" class="block text-gray-700 font-medium mb-2">Nome*</label>
+                                    <input type="text" id="nome" name="nome" class="w-full px-3 py-2 border border-gray-300 rounded transition focus:border-secondary focus:ring-2 focus:ring-secondary/20" required>
+                                 </div>
+                                 <div>
+                                    <label for="cognome" class="block text-gray-700 font-medium mb-2">Cognome*</label>
+                                    <input type="text" id="cognome" name="cognome" class="w-full px-3 py-2 border border-gray-300 rounded transition focus:border-secondary focus:ring-2 focus:ring-secondary/20" required>
+                                 </div>
+                                 <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email*</label>
+                                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded transition focus:border-secondary focus:ring-2 focus:ring-secondary/20" required>
+                                 </div>
+                                 <div>
+                                    <label for="telefono" class="block text-gray-700 font-medium mb-2">Telefono*</label>
+                                    <input type="tel" id="telefono" name="telefono" class="w-full px-3 py-2 border border-gray-300 rounded transition focus:border-secondary focus:ring-2 focus:ring-secondary/20" required>
+                                 </div>
                               </div>
-                              <div>
-                                 <label for="cognome" class="block text-gray-700 font-medium mb-2">Cognome*</label>
-                                 <input type="text" id="cognome" name="cognome" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition" required>
+                              <!-- Campo "Servizio richiesto*" -->
+                              <div class="mb-6">
+                                 <label for="servizio" class="block text-gray-700 font-medium mb-2">Servizio richiesto*</label>
+                                 <div class="relative">
+                                    <select id="servizio" name="servizio" class="w-full px-3 py-2 border border-gray-300 rounded appearance-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20 pr-8" required>
+                                       <option value="" disabled selected>Seleziona un servizio</option>
+                                       <option value="Prima visita">Prima visita</option>
+                                       <option value="Parodontologia">Parodontologia</option>
+                                       <option value="Endodonzia">Endodonzia</option>
+                                       <option value="Implantologia">Implantologia</option>
+                                       <option value="Estetica dentale">Estetica dentale</option>
+                                       <option value="Odontoiatria pediatrica">Odontoiatria pediatrica</option>
+                                       <option value="Ortodonzia">Ortodonzia</option>
+                                       <option value="Sbiancamento Denti">Sbiancamento Denti</option>
+                                       <option value="Conservativa">Conservativa</option>
+                                    </select>
+                                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                    <i class="ri-arrow-down-s-line text-gray-400 text-xl"></i>
+                                    </span>
+                                 </div>
                               </div>
-                              <div>
-                                 <label for="email" class="block text-gray-700 font-medium mb-2">Email*</label>
-                                 <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition" required>
-                              </div>
-                              <div>
-                                 <label for="telefono" class="block text-gray-700 font-medium mb-2">Telefono*</label>
-                                 <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition" required>
+                              <!-- Campo "Messaggio*" con ulteriore margin-top per posizionarlo più in basso -->
+                              <div class="mb-6 mt-8">
+                                 <label for="messaggio" class="block text-gray-700 font-medium mb-2">Messaggio*</label>
+                                 <textarea id="messaggio" name="messaggio" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded transition focus:border-secondary focus:ring-2 focus:ring-secondary/20" placeholder="Descrivi brevemente il motivo della tua visita..." required></textarea>
                               </div>
                            </div>
-                           <div class="mb-6">
-                              <label for="servizio" class="block text-gray-700 font-medium mb-2">Servizio richiesto*</label>
-                              <div class="relative">
-                                 <select id="servizio" name="servizio" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-secondary focus:ring-2 focus:ring-secondary/20 appearance-none pr-8 transition" required>
-                                    <option value="" disabled selected>Seleziona un servizio</option>
-                                    <option value="visita">Prima visita</option>
-                                    <option value="igiene">Igiene orale</option>
-                                    <option value="implantologia">Implantologia</option>
-                                    <option value="ortodonzia">Ortodonzia</option>
-                                    <option value="pediatria">Odontoiatria pediatrica</option>
-                                 </select>
-                                 <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                                 <i class="ri-arrow-down-s-line text-gray-400 text-xl"></i>
+                           <!-- Sezione inferiore: Checkbox + bottone, posizionati in fondo -->
+                           <div class="mt-auto">
+                              <div class="mb-4">
+                                 <label for="privacy" class="custom-checkbox">
+                                 <input type="checkbox" id="privacy" name="privacy" required>
+                                 <span class="checkmark"></span>
+                                 <span class="ml-2 text-gray-700">
+                                 Accetto il trattamento dei miei dati personali in conformità alla 
+                                 <a href="/informativa_trattamento_dati.html" class="text-secondary underline" target="_blank">privacy policy</a>.
                                  </span>
+                                 </label>
                               </div>
-                           </div>
-                           <div class="mb-6">
-                              <label for="messaggio" class="block text-gray-700 font-medium mb-2">Messaggio*</label>
-                              <textarea id="messaggio" name="messaggio" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition" placeholder="Descrivi brevemente il motivo della tua visita..." required></textarea>
-                           </div>
-                           <div class="text-center">
-                              <button type="submit" class="bg-secondary text-white px-8 py-3 rounded-full font-medium hover:bg-secondary-dark transition-colors whitespace-nowrap">
-                              Invia richiesta
-                              </button>
+                              <div class="text-center">
+                                 <button type="submit" class="cursor-pointer bg-secondary text-white px-8 py-3 rounded-full font-medium hover:bg-secondary-dark transition-colors whitespace-nowrap">
+                                 Invia richiesta
+                                 </button>
+                              </div>
                            </div>
                         </form>
                      </div>
@@ -269,6 +345,10 @@
                               <img src="/lettino_red.JPG" alt="Immagine 2" class="w-full h-full object-cover rounded-lg" loading="lazy">
                            </div>
                            <!-- Slide 3 -->
+                           <div class="min-w-full h-64 md:h-80">
+                              <img src="/lettino4.jpg" alt="Immagine 3" class="w-full h-full object-cover rounded-lg" loading="lazy">
+                           </div>
+                           <!-- Slide 4 -->
                            <div class="min-w-full h-64 md:h-80">
                               <img src="/reception.jpg" alt="Immagine 3" class="w-full h-full object-cover rounded-lg" loading="lazy">
                            </div>
@@ -402,80 +482,113 @@
                      Professionisti qualificati e appassionati, dedicati al benessere del tuo sorriso.
                   </p>
                </div>
-               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+               <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <!-- Card 1 -->
                   <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl" data-aos="zoom-in-up" data-aos-delay="100">
                      <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Dott. Mario Rossi</h3>
-                        <p class="text-secondary font-medium mb-3">Direttore Sanitario</p>
-                        <p class="text-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Dott. Antonio Ciannamea</h3>
+                        <p class="text-secondary font-medium mb-3">Ortodonzista</p>
+                        <!--<p class="text-gray-600">
                            Esperienza, professionalità e passione per offrire il meglio della cura dentale.
-                        </p>
+                           </p>-->
                      </div>
                   </div>
                   <!-- Card 2 -->
                   <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl" data-aos="zoom-in-up" data-aos-delay="200">
                      <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Dott.ssa Maria Verdi</h3>
-                        <p class="text-secondary font-medium mb-3">Responsabile Clinica</p>
-                        <p class="text-gray-600">
-                           Dedita a garantire un servizio di altissimo livello, con un approccio umano e personalizzato.
-                        </p>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Dott. D'Oria R.</h3>
+                        <p class="text-secondary font-medium mb-3">Med. Chirurgo Dentista</p>
+                        <!--<p class="text-gray-600">
+                           Esperienza, professionalità e passione per offrire il meglio della cura dentale.
+                           </p>-->
                      </div>
                   </div>
                   <!-- Card 3 -->
                   <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl" data-aos="zoom-in-up" data-aos-delay="300">
                      <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Dott. Giovanni Bianchi</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Dott. Marco Piccinini</h3>
                         <p class="text-secondary font-medium mb-3">Specialista</p>
-                        <p class="text-gray-600">
-                           Innovazione e competenza al servizio della tua salute, per sorrisi sempre migliori.
-                        </p>
+                        <!--<p class="text-gray-600">
+                           Esperienza, professionalità e passione per offrire il meglio della cura dentale.
+                           </p>-->
+                     </div>
+                  </div>
+                  <!-- Card 4: centrale sulla seconda riga su md+ -->
+                  <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl md:col-start-2" data-aos="zoom-in-up" data-aos-delay="300">
+                     <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Dott. Fabio Passalacqua</h3>
+                        <p class="text-secondary font-medium mb-3">Specialista</p>
+                        <!--<p class="text-gray-600">
+                           Esperienza, professionalità e passione per offrire il meglio della cura dentale.
+                           </p>-->
                      </div>
                   </div>
                </div>
             </div>
          </section>
          <!-- Convenzioni Section -->
-         <section id="convenzioni" class="py-16">
+         <section id="convenzioni" class="py-12">
             <div class="container mx-auto px-4">
-               <div class="grid grid-cols-1 gap-8 mb-12">
-                  <div class="bg-white rounded-lg shadow-lg p-10 transition-all duration-300 hover:shadow-2xl">
-                     <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between space-y-4 sm:space-y-0 sm:space-x-4">
+               <div class="grid grid-cols-1 gap-8 mb-10">
+                  <div class="bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-2xl">
+                     <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between space-y-3 sm:space-y-0 sm:space-x-4">
                         <div class="flex items-center justify-center space-x-4">
                            <div class="w-16 h-16 flex items-center justify-center bg-primary/25 rounded-full transition-colors duration-300 hover:bg-secondary/50">
                               <i class="ri-hand-heart-line text-secondary ri-2x"></i>
                            </div>
                            <h2 class="text-2xl font-semibold text-gray-800">Convenzioni Assicurative</h2>
                         </div>
-                        <p class="text-gray-600 text-center sm:text-left">
+                        <p class="text-gray-600 text-center sm:text-left text-sm">
                            Collaboriamo con numerose compagnie per tariffe agevolate. Verifica se la tua assicurazione è tra i nostri partner.
                         </p>
                      </div>
-                     <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6">
+                     <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <!-- previmedical -->
+                        <div class="p-4 rounded-lg flex justify-center items-center transition-transform duration-300 hover:scale-110"
+                           data-aos="fade-zoom-in"
+                           data-aos-easing="ease-in-back"
+                           data-aos-delay="300">
+                           <img src="/premideical.png" alt="Previmedical" class="w-24 h-24 object-contain">
+                        </div>
+                        <!-- blue assistance -->
+                        <div class="p-4 rounded-lg flex justify-center items-center transition-transform duration-300 hover:scale-110"
+                           data-aos="fade-zoom-in"
+                           data-aos-easing="ease-in-back"
+                           data-aos-delay="300">
+                           <img src="/blue.png" alt="Blue Assistance" class="w-24 h-24 object-contain">
+                        </div>
                         <!-- Card UniSalute -->
-                        <div class="p-4 rounded-lg flex justify-center items-center transition-transform duration-300 hover:scale-110" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300">
-                           <img src="https://images.seeklogo.com/logo-png/52/1/unisalute-logo-png_seeklogo-526356.png" alt="UniSalute" class="w-16 h-16 object-contain">
+                        <div class="p-4 rounded-lg flex justify-center items-center transition-transform duration-300 hover:scale-110"
+                           data-aos="fade-zoom-in"
+                           data-aos-easing="ease-in-back"
+                           data-aos-delay="300">
+                           <img src="https://images.seeklogo.com/logo-png/52/1/unisalute-logo-png_seeklogo-526356.png" alt="UniSalute" class="w-24 h-24 object-contain">
                         </div>
                         <!-- Card Generali -->
-                        <div class="p-4 rounded-lg flex justify-center items-center transition-transform duration-300 hover:scale-110" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="400">
-                           <img src="https://upload.wikimedia.org/wikipedia/it/3/38/Generali_logo.svg" alt="Generali" class="w-16 h-16 object-contain">
+                        <div class="p-4 rounded-lg flex justify-center items-center transition-transform duration-300 hover:scale-110"
+                           data-aos="fade-zoom-in"
+                           data-aos-easing="ease-in-back"
+                           data-aos-delay="400">
+                           <img src="https://upload.wikimedia.org/wikipedia/it/3/38/Generali_logo.svg" alt="Generali" class="w-24 h-24 object-contain">
                         </div>
                         <!-- Card AXA -->
-                        <div class="p-4 rounded-lg flex justify-center items-center transition-transform duration-300 hover:scale-110" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500">
-                           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/AXA_Logo_FR.svg/250px-AXA_Logo_FR.svg.png" alt="AXA" class="w-16 h-16 object-contain">
+                        <div class="p-4 rounded-lg flex justify-center items-center transition-transform duration-300 hover:scale-110"
+                           data-aos="fade-zoom-in"
+                           data-aos-easing="ease-in-back"
+                           data-aos-delay="500">
+                           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/AXA_Logo_FR.svg/250px-AXA_Logo_FR.svg.png" alt="AXA" class="w-24 h-24 object-contain">
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="bg-primary/10 rounded-lg p-10 flex flex-col md:flex-row items-center justify-between transition-colors">
-                  <div class="mb-6 md:mb-0 md:mr-8 text-center md:text-left">
-                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Hai domande sulle nostre convenzioni?</h3>
-                     <p class="text-gray-600">
+               <div class="bg-primary/10 rounded-lg p-8 flex flex-col md:flex-row items-center justify-between transition-colors">
+                  <div class="mb-4 md:mb-0 md:mr-6 text-center md:text-left">
+                     <h3 class="text-xl font-semibold text-gray-800 mb-1">Hai domande sulle nostre convenzioni?</h3>
+                     <p class="text-gray-600 text-sm">
                         Contattaci per verificare la copertura della tua assicurazione o per maggiori informazioni sui piani di pagamento.
                      </p>
                   </div>
-                  <a href="#contatti" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary transition-colors whitespace-nowrap">
+                  <a href="#contatti" class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-primary transition-colors whitespace-nowrap">
                   Contattaci ora
                   </a>
                </div>
@@ -704,6 +817,8 @@
             </div>
          </div>
       </footer>
+      <!-- Bottone Torna Su -->
+      <button id="scrollToTopBtn" onclick="scrollToTop()" aria-label="Torna su">&#8679;</button>
       <!-- Bottone WhatsApp Fluttuante -->
       <a href="https://wa.me/393395457530?text=Salve,%20vi%20contatto%20per%20richiedere%20maggiori%20informazioni%20sui%20servizi%20e%20fissare%20un%20appuntamento." target="_blank" aria-label="Chatta con noi su WhatsApp" class="whatsapp-button">
       <i class="ri-whatsapp-line ri-lg"></i>
