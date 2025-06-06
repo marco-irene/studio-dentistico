@@ -24,6 +24,10 @@ app.use(express.static(publicPath));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get('/informativa_trattamento_dati', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'informativa_trattamento_dati.html'));
+});
+
 // Configura il transporter per inviare email
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
@@ -53,7 +57,7 @@ app.post('/send-email', async (req, res) => {
     const { nome, cognome, email, telefono, servizio, messaggio } = req.body;
 
     const emailContent = `
- Nuova richiesta dal form:
+ Nuova richiesta dal sito:
  --------------------------
  Nome: ${nome}
  Cognome: ${cognome}
